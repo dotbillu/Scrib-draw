@@ -44,16 +44,9 @@ pnpm install
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000)
+Open [localhost:3000](http://localhost:3000)
 
-## Commands
 
-```bash
-pnpm install    # Install dependencies
-pnpm dev        # Start development server
-pnpm build      # Build for production
-pnpm lint       # Check code quality
-```
 
 ## Project Structure
 
