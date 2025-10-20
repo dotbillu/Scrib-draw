@@ -71,4 +71,4 @@ scrib-draw/
 
 ## License
 
-MIT License - see [LICENSE](https://github.com/dotbillu/Scrib-draw?tab=MIT-1-ov-file) file for details.
+MIT License - see [LICENSE](LICENSE) file for details.
