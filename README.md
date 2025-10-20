@@ -6,90 +6,69 @@ A modern, collaborative drawing application built with React, Konva.js, and Type
 
 ## Features
 
-- Interactive canvas with smooth drawing powered by Konva.js
-- Pen and eraser tools with customizable properties
-- Draggable canvas for navigation
-- Real-time collaboration via WebSocket
-- Modern UI with Next.js and Tailwind CSS
+-  Interactive canvas with smooth drawing powered by Konva.js
+-  Pen and eraser tools with customizable properties
+-  Draggable canvas for easy navigation
+-  Real-time collaboration via WebSocket
+-  Modern UI with Next.js and Tailwind CSS
+
+## Tech Stack
+
+### Frontend
+![React](https://img.shields.io/badge/React_19-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Next.js](https://img.shields.io/badge/Next.js_15-000000?style=for-the-badge&logo=next.js&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+
+### Libraries
+![Konva.js](https://img.shields.io/badge/Konva.js-0D83CD?style=for-the-badge&logo=javascript&logoColor=white)
+![React Konva](https://img.shields.io/badge/React_Konva-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![Jotai](https://img.shields.io/badge/Jotai-000000?style=for-the-badge&logo=react&logoColor=white)
+
+### Backend
+![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
+![WebSocket](https://img.shields.io/badge/WebSocket-010101?style=for-the-badge&logo=socket.io&logoColor=white)
+
+### Tools
+![Turborepo](https://img.shields.io/badge/Turborepo-EF4444?style=for-the-badge&logo=turborepo&logoColor=white)
+![pnpm](https://img.shields.io/badge/pnpm-F69220?style=for-the-badge&logo=pnpm&logoColor=white)
+![Zod](https://img.shields.io/badge/Zod-3E67B1?style=for-the-badge&logo=zod&logoColor=white)
 
 ## Quick Start
 
-### Prerequisites
-
-- Node.js 18+
-- pnpm 9.0.0+
-
-Install pnpm if needed:
 ```bash
-npm install -g pnpm
-```
-
-### Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/scrib-draw.git
-cd scrib-draw
-
-# Install dependencies
+# Clone and setup
+git clone https://github.com/dotbillu/Scrib-draw.git
+cd Scrib-draw
 pnpm install
-
-# Start development server
 pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000)
 
-### Run Specific Services
+## Commands
 
 ```bash
-pnpm dev --filter=web           # Frontend only
-pnpm dev --filter=http-backend  # HTTP API
-pnpm dev --filter=ws-backend    # WebSocket server
+pnpm install    # Install dependencies
+pnpm dev        # Start development server
+pnpm build      # Build for production
+pnpm lint       # Check code quality
 ```
 
-## Architecture
-
-Monorepo structure using Turborepo:
+## Project Structure
 
 ```
 scrib-draw/
 ├── apps/
-│   ├── web/              # Next.js frontend
-│   ├── http-backend/     # Express.js API
-│   └── ws-backend/       # WebSocket server
+│   ├── web/           # Next.js frontend
+│   └── ws-backend/    # WebSocket server
 └── packages/
-    ├── ui/               # Shared components
-    ├── backend-common/   # Backend utilities
-    ├── eslint-config/    # Linting config
-    └── typescript-config/# TypeScript config
-```
-
-### Tech Stack
-
-**Frontend:** React 19, Next.js 15, Konva.js, React-Konva, Jotai, Tailwind CSS 4
-
-**Backend:** Express.js, WebSocket (ws), JWT, Zod
-
-**Tools:** Turborepo, TypeScript, ESLint, Prettier
-
-## Available Scripts
-
-```bash
-pnpm dev              # Start all apps
-pnpm build            # Build all apps
-pnpm lint             # Run ESLint
-pnpm format           # Format with Prettier
-pnpm check-types      # TypeScript type check
+    ├── ui/            # Shared UI components
+    ├── backend-common/# Backend utilities
+    ├── eslint-config/ # ESLint configuration
+    └── typescript-config/ # TypeScript configuration
 ```
 
 ## License
 
-MIT License - see [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- [Konva.js](https://konvajs.org/) - 2D canvas library
-- [React-Konva](https://github.com/konvajs/react-konva) - React integration
-- [Jotai](https://jotai.org/) - State management
-- [Turborepo](https://turborepo.org/) - Monorepo tooling
+MIT License - see [LICENSE](https://github.com/dotbillu/Scrib-draw?tab=MIT-1-ov-file) file for details.
