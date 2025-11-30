@@ -1,14 +1,20 @@
 import { WebSocket, WebSocketServer } from "ws";
 import { parse } from "url";
-import type { IncomingMessage } from "http";
+import { createServer, type IncomingMessage } from "http";
 
 const rooms = new Map<string, Set<WebSocket>>();
 const PORT = Number(process.env.PORT) || 8080;
-const wss = new WebSocketServer({ port: PORT });
+const SELF_URL = process.env.NEXT_PUBLIC_WS_SERVER_LINK || `http://localhost:${PORT}`;
 
-wss.on("listening", () => {
-  console.log(`Server is listening on port ${PORT}`);
+const httpServer = createServer((req, res) => {
+  if (req.url === "/health") {
+    res.writeHead(200);
+    res.end("OK");
+    return;
+  }
 });
+
+const wss = new WebSocketServer({ server: httpServer });
 
 function broadcastUserCount(roomId: string, newClient?: WebSocket) {
   const room = rooms.get(roomId);
@@ -74,4 +80,28 @@ wss.on("connection", (ws: WebSocket, req: IncomingMessage) => {
       console.log(`Room ${roomId} is now empty.`);
     }
   });
+});
+
+httpServer.listen(PORT, "0.0.0.0", () => {
+  console.log(`Server is listening on port ${PORT}`);
+
+  if (process.env.NODE_ENV === "production" && SELF_URL) {
+    console.log(`Setting up keep-alive ping for ${SELF_URL}`);
+    setInterval(
+      async () => {
+        try {
+          console.log(`Sending keep-alive ping to ${SELF_URL}/health`);
+          const response = await fetch(`${SELF_URL}/health`);
+          if (response.ok) {
+            console.log("Keep-alive ping successful:", response.status);
+          } else {
+            console.warn("Keep-alive ping returned bad status:", response.status);
+          }
+        } catch (error) {
+          console.error("Keep-alive ping failed:", error);
+        }
+      },
+      14 * 60 * 1000
+    );
+  }
 });
