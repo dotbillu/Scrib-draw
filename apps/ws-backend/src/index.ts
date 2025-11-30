@@ -8,8 +8,7 @@ const SELF_URL = process.env.NEXT_PUBLIC_WS_SERVER_LINK || `http://localhost:${P
 
 const httpServer = createServer((req, res) => {
   if (req.url === "/health") {
-    res.writeHead(200);
-    res.end("OK");
+    res.end();
     return;
   }
 });
