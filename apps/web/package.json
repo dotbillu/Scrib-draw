@@ -14,6 +14,7 @@
     "@excalidraw/excalidraw": "^0.18.0",
     "@repo/ui": "workspace:*",
     "@tailwindcss/postcss": "^4.1.12",
+    "@vercel/analytics": "^1.6.1",
     "canvas": "^3.2.0",
     "clsx": "^2.1.1",
     "excalidraw": "link:@types/excalidraw/excalidraw",
